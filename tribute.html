@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    
+    <title>
+        Tribute to Kentaro Miura
+    </title>
+    <!--#region Favicon-->
+    <link rel = "icon" href="Images/Miura.png" type="image/png">
+    <!--#endregion-->
+</head>
+
+    <body>
+        <!--#region Styles-->
+
+        <style>
+
+            .Miura_pic{
+                margin-left: 650px;
+                margin-top: 45px;
+                transition: opacity 0.15s, transform 0.5s;
+            }
+
+            .Miura_pic:hover{
+                opacity: 0.95;
+                box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
+                transform: scale(1.05);
+            }
+
+            .Miura_pic:active{
+                opacity: 0.7;
+                
+            }
+
+            .Miura_text{
+                margin-left: 630px;
+            }
+
+            .highfontboldtxt{
+                font-size: 18px;
+                font-weight: bold;
+            }
+        </style>
+        <!--#end region-->
+
+        <!--#region Img-->
+        <a href = "https://en.wikipedia.org/wiki/Kentaro_Miura" target="_blank">
+            <img src = "Images/Miura.png" alt = "image of Kentaro Miura" width="150" height="150" class="Miura_pic">
+        </a>
+
+        <!--endregion-->
+
+        <!--region Text-->
+
+            <h1 class="Miura_text">
+                Kentaro Miura
+            </h1>
+
+            <h3 class="Miura_text">
+                (1966 - 2021)
+            </h3>
+
+            <h2>
+                Works:
+            </h2>
+            <Pre class="highfontboldtxt">
+            .Berserk
+
+            </Pre>
+        <!--endregion-->
+
+        <!--#region Audio-->
+
+            <audio autoplay loop >
+                <source src = "audio/guts-theme.mp3" type="audio/mp3">
+                <source src = "audio/guts-theme.wav" type="audio/wav">
+            </audio>
+
+        <!--endregion-->
+    </body>
+</html>
