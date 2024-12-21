@@ -1,0 +1,65 @@
+/* CSS */
+
+.center_align{
+    text-align: center;
+}
+
+.left_align{
+    text-align: left;
+}
+
+.margin_left{
+    margin-left: 30px;
+}
+
+.same_line_headings{
+    display: inline;
+}
+
+hr{
+   border: none;
+   height: 7px;
+   /* Set the hr color */
+  background-color: black;
+}
+
+img{
+    transition: opacity 0.15s, box-shadow 0.15s, transform 0.5s;
+}
+
+img:hover{
+opacity: 0.85;
+box-shadow: 2px 3px 10px rgba(0,0,0,1);
+transform: scale(1.05);
+
+}
+
+img:active{
+    opacity: 0.7;;
+}
+.small_margin{
+    margin: 20px;
+}
+.change_page{
+    border: none;
+    background-color: rgb(70, 163, 255);
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+    transition: background-color 0.15s,color 0.15s, transform 0.5s, box-shadow 0.15s;
+    
+}
+.change_page:hover{
+    background-color: rgb(0, 234, 255);
+    color: gray;
+    transform: scale(1.03);
+    box-shadow: 2px 2px 10px rgba(0,0,0,1);
+}
+.change_page:active{
+    transform: scale(0.8);
+}
