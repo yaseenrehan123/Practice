@@ -98,3 +98,20 @@ font-weight: bolder;
     padding-top: 6.5px;
     padding-bottom: 6.5px;
 }
+.large_button{
+    width: 24px;
+    height: 24px;
+    
+}
+.select_options{
+    padding: 7px;
+    font-weight: bolder;
+    color: white;
+    background-color: black;
+    border-color: black;
+    border: solid;
+    border-width: 2px;
+}
+.golden_color{
+    color: goldenrod;
+}
