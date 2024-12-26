@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump form</title>
+    <!--CSS-->
+    <link rel="stylesheet" href = "style.css">
+</head>
+<body class="reset-margin-padding">
+    
+    <div class="form-container">
+
+            <!--Heading-->
+            <div class="form-item">
+                <h1 >
+                    Jump form
+                </h1>
+            </div>
+
+            <div class="form-item">
+                <h3 >
+                    Fill this form if you want to jump!!
+                </h3>
+            </div>
+        
+            <!--Heading done-->
+        <form class="form-item">
+            <div class = "form-item"> <!--Jumping checkmark-->
+                <label class="text-font-30">
+                    Jumping:
+                </label>
+                <input type="checkbox" required class="width-25 height-25">
+
+            </div>
+            
+            <div class="form-item"> <!--Troop type-->
+                <label class="text-font-30">
+                    Troop type:
+                </label>
+
+                <br>
+                <br>
+                
+                <label class = "text-font-30">Infantry:</label> <!--Infantry-->
+                <input type = "radio" name="TroopType"required class="width-25 height-25">
+                
+                <label class = "text-font-30">Cavalry:</label> <!--Cavalry-->
+                <input type="radio" name="TroopType"required class="width-25 height-25">
+
+                <label class = "text-font-30">Archers:</label> <!--Archers-->
+                <input type="radio" name="TroopType" required class="width-25 height-25">
+
+                <label class = "text-font-30">Siege</label > <!--Siege-->
+                <input type="radio" name = "TroopType" required class="width-25 height-25">
+            </div>
+
+            <div class="form-item"> <!--Spending value-->
+                <label class="text-font-30">
+
+                    Spending Value:
+
+                </label>
+                <select class="select-option" required>
+
+                    <option>F2P(0$ per month)</option> <!--F2P-->
+                    <option>Low Spender(5-100$ per month)</option><!--Low Spender-->
+                    <option>Medium Spender(100-500$ per month)</option> <!--Mid Spender-->
+                    <option>High Spender(1000+$ per month)</option> <!--High Spender-->
+                    <option>Whale(2000$-5000$)</option> <!--Whale-->
+                    <option>Kraken(10000+$)</option> <!--Kraken-->
+                </select>
+            </div>
+
+            <div class="form-item"> <!--Daily Playtime-->
+
+                <label class="text-font-30">
+                    Hours Spent Daily:
+                </label>
+
+                <select class="select-option" required> 
+
+                    <option>1-2 Hours</option> <!-- 1-2 Hours -->
+                    <option>3-4 Hours</option> <!-- 3-4 Hours -->
+                    <option>5-6 Hours</option> <!-- 5-6 Hours-->
+                    <option>~8 Hours</option> <!-- ~8Hours -->
+                </select>
+            </div>
+
+            <div class="form-item">
+                <input type="submit" class="submit-button">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
