@@ -228,3 +228,30 @@ color: #2ecc71;
 .overflow-x-scroll{
     overflow-x: scroll;
 }
+
+.card{
+    background-color: #1e272e;
+    color: white;
+    margin: 50px;
+    flex: 1 1 0;
+    flex-wrap: wrap;
+    min-width: 325px;
+    width: 100%;
+    max-width: 325px;
+}
+.card-img{
+    width: 100%;
+    max-height: 200px;
+    height: 100%;
+    flex-wrap: wrap;
+    object-fit: cover;
+    background-color: #1e272e;
+}
+.card-button{
+    background-color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    transition: transform 0.15s;
+}
