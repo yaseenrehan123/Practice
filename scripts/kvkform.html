@@ -1,191 +1,101 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVK Form</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="reset-margin-padding">
+    
+    <div class="form-container">
 
-<html>
+        <!--Heading-->
+        <div class="form-item">
+            <h1>KVK Form</h1>
+        </div>
 
-    <head>
+        <div class="form-item">
+            <h3>For the preparation of the upcoming KVK it is required that all governors must fill this form
+                with their accurate account data!!
+            </h3>
+        </div>
 
-        <title>
-            Kvk form
-        </title>
+        <!--Headings done-->
 
-        <!--CSS-->
-        <link rel = "stylesheet" href= "/CSS/rok_account_css.css">
-    </head>
+        <form class="form-item">
+            
+            <div class="form-item"> <!--Username-->
+                <label class="text-font-30">
+                    Username:
+                </label>
+                <input type="text" required class="input-text-effect" minlength="3" maxlength="15" placeholder="Magstar">
+            </div>
 
-    <body>
+            <div class="form-item"> <!--ID-->
+                <label class="text-font-30">
+                    ID:
+                </label>
+                <input type="text" required class="input-text-effect" placeholder="4325324">
+            </div>
 
-        <!--Title heading-->
-        <h1 class="center_align">
-            Kvk data
-        </h1>
-
-        <br>
-
-        <h3 class="center_align">
-            Please fill out the req form with your account details so we could better prepare for kvk!
-        </h3>
-
-        <!---->
-        <br>
-
-        <!--Form-->
-        <form>
-
-            <!--Username-->
-
-            <label class="left_align same_line_headings font_25px" >
-                Username:
-            </label>
-
-            <input type="text" minlength="3" maxlength="15" required
-             class="text_input_forms" placeholder="MagstarDev">
-             
-            <!---->
-            <br>
-
-            <hr>
-
-            <!--id-->
-
-            <label class="left_align same_line_headings font_25px">
-                Id:
-            </label>
-
-            <input type="text" required class="text_input_forms" placeholder="8379462">
-
-            <!---->
-            <br>
-
-            <hr>
-
-            <!--VIP-->
-            <label class="font_25px left_align same_line_headings">
-                VIP:
-            </label>
-
-            <input type="number" min = "0" max = "20" required
-             class="text_input_forms" placeholder="12">
-
-            <!---->
-            <br>
-
-            <hr>
+            <div class="form-item"> <!--VIP-->
+                <label class="text-font-30">
+                    VIP:
+                </label>
+                <input type="number" required min="0" max="20" class="input-text-effect" placeholder="12">
+            </div>
 
             <!--Marches-->
 
-            <!--1st March-->
+            <div class="form-item"> <!--First March-->
+                <label class="text-font-30">
+                    First March:
+                </label>
+                <input type="text" required placeholder="Huo/Joan" class="input-text-effect">
 
-            <label class="left_align font_25px same_line_headings">
-                1st March:
-            </label>
-
-            <input type="text" placeholder="Huo/Nevsky" required class="text_input_forms">
-
-            <label class="margin_left font_25px same_line_headings">
-                Confirmation:
-            </label>
-
-            <input type="file">
-
-            <!---->
-            <br>
-
-            <hr>
-
-            <!--Second march-->
-
-            <label class="same_line_headings left_align font_25px">
-                2nd March:
-            </label>
-
-            <input type="text" required placeholder="None" class="text_input_forms">
-
-            <label class="margin_left font_25px ">
-                Confirmation:
-            </label>
-
-            <input type="file">
-
-            <!---->
-            <br>
-
-            <hr>
-
-            <!--3rd March-->
-
-            <label class="left_align same_line_headings font_25px">
-                3rd March:
-            </label>
-
-            <input type="text" required placeholder="None" class="text_input_forms">
-
-            <label class="margin_left font_25px">
-                Confirmation:
-            </label>
-
-            <input type="file">
-
-            <!---->
-            <br>
-
-            <hr>
-
-            <!--4th March-->
-
-            <label class="left_align same_line_headings font_25px">
-                4th March:
-            </label>
-
-            <input type="text" required placeholder="None" class="text_input_forms">
-
-            <label class="margin_left font_25px">
-                Confirmation:
-            </label>
-
-            <input type="file">
-
-            <!---->
-            <br>
-
-            <hr>
-
-            <!--5th March-->
-
-            <label class="left_align same_line_headings font_25px">
-                5th March:
-            </label>
-
-            <input type="text" required placeholder="None" class="text_input_forms">
-
-            <label class="margin_left font_25px">
-                Confirmation:
-            </label>
-
-            <input type="file">
-
-            <!--Marches done-->
-            <br>
-
-            <hr>
-
-            <!--Add something new-->
-
-
-            
-            <!--Submit-->
-            
-            <div class="center_align">
-                <input type="submit" class="submit_button">
             </div>
-           
+
+            <div class="form-item"> <!--Second March-->
+                <label class="text-font-30">
+                    Second March:
+                </label>
+                <input type="text" required class="input-text-effect" placeholder="None">
+
+            </div>
+
+            <div class="form-item"> <!--Third March-->
+                <label class="text-font-30">
+                    Third March:
+                </label>
+                <input type="text" required class="input-text-effect" placeholder="None">
+
+            </div>
+
+            <div class="form-item"> <!--Fourth March-->
+                <label class="text-font-30">
+                    Fourth March:
+                </label>
+                <input type="text" required class="input-text-effect" placeholder="None">
+
+            </div>
+
+            <div class="form-item"> <!--Fifth March-->
+                <label class="text-font-30">
+                    Fifth March
+                </label>
+              <input type="text" required class="input-text-effect" placeholder="None">
+
+            </div>
+
+            <div class="form-item"> <!--Submit button-->
+                <input type="submit" class="submit-button">
+            </div>
         </form>
 
-        
-        
-    </body>
+    </div>
 
 
-
-
-
+</body>
 </html>
