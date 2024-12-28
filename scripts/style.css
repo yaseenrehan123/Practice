@@ -150,6 +150,15 @@ object-fit: cover;
     width: 100%;
   /*  border: red dotted; */
 }
+.container-centered{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 90%;
+    width: 100%;
+    justify-content: center;
+  /*  border: red dotted; */
+}
 .flex-item-single-line{
     flex: 1 1 calc(75% - 20px);
     flex-wrap: wrap;
@@ -201,4 +210,21 @@ color: #2ecc71;
 }
 .more-info-button:active , .back-button:active{
     transform: scale(0.9);
+}
+.sunflower-background{
+    background-color: #f1c40f;
+}
+.rok-table{
+    background-color: #f1c40f;
+    padding: 24px;
+    font-weight: bolder;
+    flex-wrap: wrap;
+}
+.rok-table:hover{
+    background-color: #fed330;
+    cursor: pointer;
+    border: solid black 1.5px;
+}
+.overflow-x-scroll{
+    overflow-x: scroll;
 }
