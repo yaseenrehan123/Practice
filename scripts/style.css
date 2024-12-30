@@ -188,6 +188,9 @@ color: #2ecc71;
 .display-inline-block{
     display: inline-block;
 }
+.display-block{
+    display: block;
+}
 .flex-item{
     flex: 1 1 0;
     flex-wrap: wrap;
@@ -229,23 +232,31 @@ color: #2ecc71;
     overflow-x: scroll;
 }
 
-.card{
-    background-color: #1e272e;
-    color: white;
-    margin: 50px;
-    flex: 1 1 0;
+.card-container{
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: flex-start; /* Ensures cards are independent in height */
+}
+.card{
+    max-width: 325px;
     min-width: 325px;
     width: 100%;
-    max-width: 325px;
+    flex-wrap: wrap;
+    margin: 50px;
+    background-color: #1e272e;
 }
-.card-img{
+.card-image{
+    max-width: 325px;
     width: 100%;
     max-height: 200px;
     height: 100%;
-    flex-wrap: wrap;
     object-fit: cover;
-    background-color: #1e272e;
+}
+.card-content{
+    color: white;
+    text-align: center;
 }
 .card-button{
     background-color: black;
@@ -253,5 +264,84 @@ color: #2ecc71;
     padding: 10px;
     text-align: center;
     color: white;
-    transition: transform 0.15s;
+}
+.nav-bar{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    
+}
+.nav-bar-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+}
+.nav-bar-items{
+    padding: 15px;
+    float: left;
+}
+.nav-bar-items:hover{
+    background-color: rgb(54, 54, 54);
+}
+.nav-bar a{
+    color: inherit;
+    text-decoration: none;
+}
+.a-no-style{
+    color: inherit;
+    text-decoration: none;
+}
+.card-base{
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 50px;
+    background-color: #1e272e;
+}
+.card-image-base{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.max-min-width-200{
+    max-width: 200px;
+    min-width: 200px;
+}
+.max-min-height-200{
+    max-height: 200px;
+    min-height: 200px;
+}
+
+.pagination{
+    margin-bottom: 50px;
+    text-align: center;
+}
+.pagination-elements{
+    margin: 10px;
+    padding: 8px 15px;
+    display: inline-block;
+    transition: transform 0.15s, background-color 0.15s;
+}
+.pagination-elements:hover:not(.pagination-current-btn){
+    background-color: #394955;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.pagination-elements:active{
+    transform: scale(0.98);
+}
+.pagination-current-btn{
+    background-color: #2a6fa3;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.15s;
+}
+.pagination-current-btn:active{
+    transform: scale(0.98);
+}
+.border-radius-100{
+    border-radius: 100px;
 }
