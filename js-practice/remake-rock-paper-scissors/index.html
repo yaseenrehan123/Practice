@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Remake</title>
+    <!--CSS-->
+    <link rel = "stylesheet" href="style.css">
+    <!--Javascript-->
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="player-options-container">
+            <div class="player-option" id="option1">
+                <img src="images/scissors.png" class="option-image">
+            </div>
+
+            <div class="player-option" id="option2">
+                <img src="images/rock.png" class="option-image">
+            </div>
+            
+            <div class="player-option" id="option3">
+                <img src="images/paper.png" class="option-image">
+            </div>
+
+        </div>
+        <div class="play-button-container">
+            <button class="play-button" id="play-button">
+                Play!
+            </button>
+        </div>
+       
+        <div class="battle-results-container">
+            <h1 id="match-result-text" class="match-result-text"></h1>
+            <div class="details">
+                <h1 id="player-details-text"></h1>
+                <div class="choice-img-container" id="player-choice-result">
+                    <img  alt="Player choice img" class="choice-img" id="player-choice-img">
+                </div>
+            </div>
+           
+            <div class="details">
+                <h1 id="computer-details-text"></h1>
+                <div class="choice-img-container" id="computer-choice-result">
+                    <img  alt="Computer choice img" class="choice-img" id="computer-choice-img">
+                </div>
+                
+            </div>
+
+           <div class="details">
+                <h1 id="wins-counter-text"></h1>
+                <h1 id="loses-counter-text"></h1>
+                <h1 id="tie-counter-text"></h1>
+           </div>
+        </div>
+        
+    </div>
+       
+   
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People's data-cards</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+    <!--Javascript-->
+    <script src="app.js" defer></script>
+    <!--Import Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="menu-section">
+        <button class="enable-details-menu-btn" onclick="enableNewCardMenu()">
+            Add Cards
+        </button>
+    </div>
+
+    <div class="add-card-details-section">
+        <input type="text" class="input-element" required placeholder="Name: Mark" id="card-name-field">
+        <input type="text" class="input-element" required placeholder="Age: 18" id="card-age-field">
+        <input type="text" class="input-element" required placeholder="Gender: Male" id="card-gender-field">
+        <input type="text" class="input-element" required placeholder="Status: Unemployed" id="card-status-field">
+        <input type="text" class="input-element" required placeholder="Profession: None" id="card-profession-field">
+        <button class="add-card-btn" onclick="addNewCard()">
+            Add!
+        </button>
+    </div>
+
+    <div class="card-container">
+
+        
+        
+    </div>
+</body>
+</html>

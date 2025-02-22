@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1e272e;
+    overflow-x: hidden;
+    --default-theme-color: white;
+    padding: 100px 0px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+.simple-heading{
+    color: var(--default-theme-color);
+    font-size: clamp(1.2rem, 5vh, 1.8rem);
+}
+.simple-heading-black-color{
+    color: black;
+    font-size: clamp(1.2rem, 5vh, 1.8rem);
+}
+.input-element{
+    background-color: #394751;
+    max-width: 300px;
+    width: 100%;
+    min-width: 120px;
+    padding: 10px 15px;
+    color: var(--default-theme-color);
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    flex: 1 1 0;
+
+}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+    margin: 0;
+    -webkit-appearance: none;
+}
+.price-type-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
