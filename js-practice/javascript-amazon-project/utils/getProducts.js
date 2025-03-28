@@ -1,6 +1,5 @@
 import * as productsScript from '../data/products.js';
 
-export async function findMatchingProduct(productId){
-    await productsScript.loadProducts();
+export function findMatchingProduct(productId){
     return productsScript.productsData.find(item => item.id === productId);
 }
