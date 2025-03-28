@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(30, 39, 46);
+    overflow-x: hidden;
+    color: white;
+    font-family: Roboto;
+    line-height: 2rem;
+    text-align: center;
+    word-wrap: break-word;
+    font-weight: 600;
+}
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+}
+.x-section,.o-section{
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: clamp(1.4rem,5vw,1.6rem);
+}
+.x-icon{
+    font-size: clamp(12rem,10vw,15rem);
+    color: red;
+    position: relative;
+    text-shadow:
+    0 0 20px red,
+    0 0 40px red,
+    0 0 80px red,
+    0 0 160px red,
+    0 0 240px red; /* Increase glow radius */
+}
+
+
+.o-icon{
+    font-size: clamp(12rem,10vw,15rem);
+    color: rgb(72, 52, 212);
+    text-shadow:
+    0 0 20px rgb(72, 52, 212),
+    0 0 40px rgb(72, 52, 212),
+    0 0 80px rgb(72, 52, 212),
+    0 0 160px rgb(72, 52, 212),
+    0 0 240px rgb(72, 52, 212);
+}
+.mid-line{
+    position: relative;
+    height: 100vh;
+   /* border: 1px red solid;*/
+}
+.mid-line::before{
+    content: '';
+    position: absolute;
+    translate: -50% -50%;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right,rgb(72, 52, 212),red);
+}

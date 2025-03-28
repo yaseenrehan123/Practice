@@ -1,3 +1,5 @@
+import * as productsScript from './data/products.js';
+import * as moneyUtil from './utils/money.js';
 function Product(name,imgSrc,stars,count,priceCents,id){
     this.name = name,
     this.imgSrc = imgSrc,
@@ -8,7 +10,7 @@ function Product(name,imgSrc,stars,count,priceCents,id){
     this.priceCents = priceCents,
     this.id = id;
 };
-const products = productsData.map(item => new Product(item.name,item.image,item.rating.stars,item.rating.count,item.priceCents,item.id));
+const products = productsScript.productsData.map(item => new Product(item.name,item.image,item.rating.stars,item.rating.count,item.priceCents,item.id));
 const productsGrid = document.querySelector('.products-grid');
 products.forEach(function(product){
     const template = `<div class="product-container">
@@ -30,11 +32,11 @@ products.forEach(function(product){
           </div>
 
           <div class="product-price">
-            $${(product.priceCents/100).toFixed(2)}
+            $${moneyUtil.formatCurrency(product.priceCents)}
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class = 'product-quantity-selector'>
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -64,34 +66,3 @@ products.forEach(function(product){
 });
 
 
-document.querySelectorAll('.add-to-cart-button').forEach((button) =>{
-  button.addEventListener('click',function(){
-    const productId = button.dataset.productId;
-    let matchingItem;
-    cart.forEach(item =>{
-      if(productId === item.productId){
-        matchingItem = item;
-      }
-    });
-    if(matchingItem){
-      matchingItem.quantity ++;
-    }
-    else{
-      cart.push({
-        productId: productId,
-        quantity: 1,
-      });
-      
-    }
-    document.querySelector('.cart-quantity').textContent = returnTotalProducts();;
-
-    //console.log(cart);
-  });
-});
-function returnTotalProducts(){
-  let totalQuantity = 0;
-  cart.forEach(item => {
-    totalQuantity += item.quantity;
-  });
-  return totalQuantity;
-}
