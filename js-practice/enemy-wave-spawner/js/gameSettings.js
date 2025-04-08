@@ -1,3 +1,4 @@
+
 export class GameSettings{
     //isMobile;
     
@@ -19,9 +20,18 @@ export class GameSettings{
     canvas;
     ctx;
     //#endregion
-    //#generalRotationTracker
+
+    //#region generalRotationTracker
     sceneRotation = 0; // 0 by def straight scene
     //#endregion
+
+    //#region matterJS
+    engine = null;
+    render = null;
+    runner = null;
+    CATEGORY_PLAYER = 0x0001;
+    CATEGORY_BULLET = 0x0002;
+    CATEGORY_ENEMY = 0x0004;
     constructor(){
         this.start();
         this.gameLoop(0);
@@ -36,10 +46,12 @@ export class GameSettings{
         window.addEventListener('resize',() => this.checkIfMobile)
     };
     */
+
    start(){
         //this.checkIfMobile();
         //this.checkIfMobileListener();
         this.initializeCanvas();
+        this.initializeMatterLib();
         this.onWindowResize();
    }
    gameLoop(timeStamp){
@@ -71,6 +83,54 @@ export class GameSettings{
         this.windowWidth =  window.innerWidth;
         this.windowHeight = window.innerHeight;
         this.resizeCanvas();
+        this.setRenderSize();
     });
-   }
+   };
+   initializeMatterLib(){
+    this.engine = Matter.Engine.create(this.canvas,{
+        options: {
+            width: this.windowWidth,
+            height: this.windowHeight,                 
+            showAngleIndicator: true,
+            showVelocity: true,
+            wireframes: false
+        }
+    });
+    this.render = Matter.Render.create({
+        engine:this.engine,
+        element:document.body
+    });
+    this.runner = Matter.Runner.create();
+
+    this.setRenderSize();
+    this.engine.world.gravity.scale = 0;
+    
+    Matter.Runner.run(this.runner,this.engine);
+    Matter.Render.run(this.render);
+   };
+   setRenderSize(){
+    Matter.Render.setSize(this.render,this.windowWidth,this.windowHeight);
+   };
+   collisionDetection(){
+    Matter.events.on(this.engine,'collisionStart',(event)=>{
+        for (let pair in pairs){
+            const {a,b} = pair;
+            const label1 = a.label;
+            const label2 = b.label;
+        };
+        if(this.matchCollision(a,b,'playerProjectile','enemy')){
+            // subtract enemy hp
+            console.log("Enemy Collided with Player Projectile");
+        }
+        else if(this.matchCollision(a,b,'player','enemy')){
+            // subtract player hp and give invincibility frames
+            // destroy enemy
+            console.log("Player collided with enemy");
+        }
+    });
+   };
+   matchCollision(a, b, label1, label2) {
+    return (a === label1 && b === label2) || (a === label2 && b === label1);
+    };
+
 };
