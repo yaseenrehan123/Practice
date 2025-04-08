@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    touch-action: none; /* Prevents double-tap zoom and scroll gestures */
+    overscroll-behavior: none; /* Prevents pull-to-refresh and scroll chaining */
+    overflow: hidden;
+}
+body{
+    line-height: 2rem;
+    background-color: #1e272e;
+}

@@ -4,14 +4,17 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #1e272e;
     line-height: 2rem;
     overflow: hidden;
+}
+.game-container{
+    background-color: #1e272e;
 }
 .player{
     position: absolute;
     width: 100px;
     height: 100px;
+    transform: translate(-50% ,-50%);
 }
 .player-img{
     width: 100%;

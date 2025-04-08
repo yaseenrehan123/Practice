@@ -18,8 +18,7 @@ const config = {
     pixelArt:true
 };
 const game = new Phaser.Game(config);
-
-
+let cursors;
 
 function preload() {
     playerScript.loadPlayerSprite(this);
@@ -27,7 +26,19 @@ function preload() {
 
 function create() {
    playerScript.createPlayer(this);
+   cursors = this.input.keyboard.createCursorKeys();
 }
 function update(){
-    //console.log("Update");
+    var pointer = this.input.activePointer;
+    const speed = 500;
+
+    const dx = pointer.worldX - playerScript.player.x;
+    const dy = pointer.worldY - playerScript.player.y;
+    const distance = Math.hypot(dx, dy);
+    if (distance > 10) { // prevent jitter when close
+        const angle = Math.atan2(dy, dx);
+        playerScript.player.setVelocity(Math.cos(angle) * speed, Math.sin(angle) * speed);
+    } else {
+        playerScript.player.setVelocity(0);
+    }
 }
