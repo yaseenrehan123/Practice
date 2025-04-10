@@ -130,6 +130,8 @@ export class GameSettings{
             if(this.matchCollision(a,b,'playerBullet','enemy')){
                 // subtract enemy hp
                 const bullet = bodyA.label === 'playerBullet' ? bodyA.gameObject : bodyB.gameObject;
+                const enemy = bodyB.label === 'enemy' ? bodyB.gameObject : bodyA.gameObject;
+                enemy.takeDamage(bullet.damage);
                 bullet.die();
             }
             else if(this.matchCollision(a,b,'player','enemy')){

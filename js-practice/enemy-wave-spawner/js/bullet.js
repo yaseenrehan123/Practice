@@ -38,19 +38,17 @@ export class Bullet{
         this.element.style.left = `${this.pos.x}px`;
         this.element.style.top = `${this.pos.y}px`;
 
-        
-        // Optional: destroy bullet if out of screen
+        const buffer = 100;
+
         if (
-            this.pos.x < 0 || this.pos.x > window.innerWidth ||
-            this.pos.y < 0 || this.pos.y > window.innerHeight
+            this.pos.x < -buffer || this.pos.x > window.innerWidth + buffer ||
+            this.pos.y < -buffer || this.pos.y > window.innerHeight + buffer
         ) {
             this.die();
-        }
-        else{
-            if(this.gameSettings.draw && !this.dead){
+        } else {
+            if (this.gameSettings.draw && !this.dead) {
                 this.draw(this.gameSettings.ctx);
             }
-            
         }
         
     };

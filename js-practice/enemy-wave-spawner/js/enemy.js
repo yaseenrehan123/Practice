@@ -11,17 +11,19 @@ export class Enemy{
         this.element = null;
         this.elementSprite = null;
         this.body = null;
+        this.dead = false;
         this.start();
     };
     start(){
         this.gameSettings.registerObject(this);
         this.createElement();
         this.createMatterBody();
+        this.body.gameObject = this;
     };
     update(deltaTime){
         this.changeRotationWithView();
         this.move(deltaTime);
-        if(this.gameSettings.draw){
+        if(this.gameSettings.draw && !this.dead){
             this.draw(this.gameSettings.ctx);
         };
         
@@ -70,7 +72,18 @@ export class Enemy{
             this.position.x < -buffer || this.position.x > window.innerWidth + buffer ||
             this.position.y < -buffer || this.position.y > window.innerHeight + buffer
         ) {
-            this.element.remove(); // Or trigger a proper destroy
+            this.die();
         };
+    };
+    takeDamage(damage){
+        this.health -= damage;
+        if(this.health <= 0){
+            this.die();
+        };
+    };
+    die(){
+        this.dead = true;
+        Matter.World.remove(this.gameSettings.engine.world, this.body);
+        this.element.remove();
     };
 };
