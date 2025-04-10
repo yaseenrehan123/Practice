@@ -12,13 +12,15 @@ export class Bullet{
         this.imageSrc = imageSrc;
         this.fireDelayInSeconds = fireDelayInSeconds;
         this.damage = damage;
-        this.physicsBody = null;
+        this.body = null;
+        this.dead = false;
         this.start();
     };
     start(){
         this.gameSettings.registerObject(this);
         this.createElement();
         this.createMatterBody();
+        this.body.gameObject = this;
     };
     update(deltaTime){
         // Convert degrees to radians
@@ -36,15 +38,21 @@ export class Bullet{
         this.element.style.left = `${this.pos.x}px`;
         this.element.style.top = `${this.pos.y}px`;
 
+        
         // Optional: destroy bullet if out of screen
         if (
             this.pos.x < 0 || this.pos.x > window.innerWidth ||
             this.pos.y < 0 || this.pos.y > window.innerHeight
         ) {
-            Matter.World.remove(this.gameSettings.engine.world, this.body);
-            this.element.remove();
+            this.die();
         }
-
+        else{
+            if(this.gameSettings.draw && !this.dead){
+                this.draw(this.gameSettings.ctx);
+            }
+            
+        }
+        
     };
     createElement(){
         this.element = document.createElement('div');
@@ -65,29 +73,9 @@ export class Bullet{
         this.element.append(this.sprite);
         document.body.append(this.element);
     };
-    createMatterBody(){
-         // Create the physics body
-         this.body = Matter.Bodies.rectangle(
-            this.pos.x, this.pos.y,
-            this.width, this.height,
-            {
-                label: 'playerBullet',
-                frictionAir: 0,
-                isSensor: false,      // Still collides
-                collisionFilter: { group: 0 },
-                inertia: Infinity,    // Prevent rotation
-                collisionFilter: {
-                    group: -1, // prevents bullets colliding with each other
-                    category: this.gameSettings.CATEGORY_BULLET,
-                    mask: this.gameSettings.CATEGORY_ENEMY // bullets only collide with enemies
-                },
-
-            }
-        );
-
-        // Disable gravity (by applying zero gravity to just this body)
-        
-        // Add to world
-        Matter.World.add(this.gameSettings.engine.world, this.body);
+    die(){
+        this.dead = true;
+        Matter.World.remove(this.gameSettings.engine.world, this.body);
+        this.element.remove();
     };
 };

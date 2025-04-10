@@ -27,11 +27,17 @@ export class GameSettings{
 
     //#region matterJS
     engine = null;
-    render = null;
+    //render = null;
     runner = null;
     CATEGORY_PLAYER = 0x0001;
     CATEGORY_BULLET = 0x0002;
     CATEGORY_ENEMY = 0x0004;
+    //#endregion
+
+    //#region drawing
+    draw = true;
+    //#endregion
+
     constructor(){
         this.start();
         this.gameLoop(0);
@@ -75,58 +81,65 @@ export class GameSettings{
     this.resizeCanvas();
    };
    resizeCanvas(){
-    this.canvas.width = this.windowWidth;
-    this.canvas.height = this.windowHeight;
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+
+    // Optional: force re-setting CSS to match just in case
+    this.canvas.style.width = window.innerWidth + "px";
+    this.canvas.style.height = window.innerHeight + "px";
    }
    onWindowResize(){
     window.addEventListener('resize',()=>{
         this.windowWidth =  window.innerWidth;
         this.windowHeight = window.innerHeight;
         this.resizeCanvas();
-        this.setRenderSize();
+        //this.setRenderSize();
     });
    };
    initializeMatterLib(){
-    this.engine = Matter.Engine.create(this.canvas,{
-        options: {
-            width: this.windowWidth,
-            height: this.windowHeight,                 
-            showAngleIndicator: true,
-            showVelocity: true,
-            wireframes: false
-        }
-    });
+    
+    this.engine = Matter.Engine.create();
+    /*
     this.render = Matter.Render.create({
         engine:this.engine,
-        element:document.body
+        element:document.body,
+        wireframes: false,
     });
+    */
     this.runner = Matter.Runner.create();
 
-    this.setRenderSize();
+    //this.setRenderSize();
     this.engine.world.gravity.scale = 0;
     
     Matter.Runner.run(this.runner,this.engine);
-    Matter.Render.run(this.render);
+    //Matter.Render.run(this.render);
+    this.collisionDetection();
    };
+   /*
    setRenderSize(){
     Matter.Render.setSize(this.render,this.windowWidth,this.windowHeight);
    };
+   */
+
    collisionDetection(){
-    Matter.events.on(this.engine,'collisionStart',(event)=>{
-        for (let pair in pairs){
-            const {a,b} = pair;
-            const label1 = a.label;
-            const label2 = b.label;
+    Matter.Events.on(this.engine,'collisionStart',(event)=>{
+        for (let pair of event.pairs){
+            const {bodyA,bodyB} = pair;
+            const a = bodyA.label;
+            const b = bodyB.label;
+            if(this.matchCollision(a,b,'playerBullet','enemy')){
+                // subtract enemy hp
+                const bullet = bodyA.label === 'playerBullet' ? bodyA.gameObject : bodyB.gameObject;
+                bullet.die();
+            }
+            else if(this.matchCollision(a,b,'player','enemy')){
+                // subtract player hp and give invincibility frames
+                // destroy enemy
+                console.log("Player collided with enemy");
+            }
         };
-        if(this.matchCollision(a,b,'playerProjectile','enemy')){
-            // subtract enemy hp
-            console.log("Enemy Collided with Player Projectile");
-        }
-        else if(this.matchCollision(a,b,'player','enemy')){
-            // subtract player hp and give invincibility frames
-            // destroy enemy
-            console.log("Player collided with enemy");
-        }
+        
+        
     });
    };
    matchCollision(a, b, label1, label2) {

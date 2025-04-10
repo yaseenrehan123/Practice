@@ -10,16 +10,21 @@ export class Enemy{
         this.height = 100;
         this.element = null;
         this.elementSprite = null;
+        this.body = null;
         this.start();
     };
     start(){
         this.gameSettings.registerObject(this);
         this.createElement();
+        this.createMatterBody();
     };
     update(deltaTime){
         this.changeRotationWithView();
         this.move(deltaTime);
-        console.log(this.rotation);
+        if(this.gameSettings.draw){
+            this.draw(this.gameSettings.ctx);
+        };
+        
     };
     createElement(){
         this.element = document.createElement('div');
@@ -48,9 +53,13 @@ export class Enemy{
          // Convert degrees to radians
          const angleRad = (this.rotation - 90) * (Math.PI / 180);
 
+         Matter.Body.setVelocity(this.body, {
+            x: Math.cos(angleRad) * this.speed,
+            y: Math.sin(angleRad) * this.speed
+        });
          // Move bullet in direction
-         this.position.x += Math.cos(angleRad) * this.speed * deltaTime;
-         this.position.y += Math.sin(angleRad) * this.speed * deltaTime;
+         this.position.x = this.body.position.x;
+         this.position.y = this.body.position.y;
  
          this.element.style.left = `${this.position.x}px`;
          this.element.style.top = `${this.position.y}px`;

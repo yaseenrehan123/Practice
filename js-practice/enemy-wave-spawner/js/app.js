@@ -12,7 +12,7 @@ const player = new Player
     gameSettings
 );
 const enemySpawner = new EnemySpawner(gameSettings);
-const changeview = new ChangeView(-90,gameSettings,player.playerSprite);
+//const changeview = new ChangeView(-90,gameSettings,player.playerSprite);
 setTimeout(()=>{
     const enemy1 = new Enemy1(gameSettings,player.position);
 },3000);

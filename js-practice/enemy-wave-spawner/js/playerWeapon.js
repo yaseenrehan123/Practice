@@ -4,7 +4,7 @@ export class PlayerWeapon{
         this.gameSettings = gameSettings;
         this.isFiring = false;
         this.bullets = ['GreenBullet','BlueBullet','PurpleBullet'];
-        this.currentBullet = 'GreenBullet';
+        this.currentBullet = 'PurpleBullet';
         this.player = player;
         this.fireCounter = 0;
         this.start();
