@@ -1,0 +1,26 @@
+[
+    {
+        "name":"Joe",
+        "age":"17",
+        "combat":{
+            "class":"swordsman",
+            "level":"3"
+        }
+    },
+    {
+        "name":"Batman",
+        "age":"24",
+        "combat":{
+            "class":"dark_knight",
+            "level":"20"
+        }
+    },
+    {
+        "name":"Joker",
+        "age":"40",
+        "combat":{
+            "class":"commedian",
+            "level":"26"
+        }
+    }
+]

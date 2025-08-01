@@ -1,5 +1,5 @@
 export class SpawnArea{
-    constructor(settings){
+    constructor(settings,placeHolder){
         this.settings = settings;
         this.container = document.querySelector('.lane-container');
         this.laneEntities = [];
@@ -8,10 +8,13 @@ export class SpawnArea{
         this.maxActiveLanes = 3;
         this.width = settings.width;
         this.height = 300;
+        this.spawnPlaceHolder = placeHolder;
+        this.hoveredLaneEntity = null;
         this.start();
         this.activateRandomLanes();
     };
     start(){
+        console.log(`SpawnPlaceHolder from SpawnArea ${this.spawnPlaceHolder}`)
         this.createLanes();
         this.activateRandomLanes();
         this.laneEntities.forEach((laneEntity)=>{
@@ -72,6 +75,13 @@ export class SpawnArea{
         laneComp.isActive = true;
         laneComp.element.style.borderColor = 'rgba(0, 255, 0, 0.3)'; // Highlight active
     }
+    if (this.hoveredLaneEntity) {
+        const laneComp = this.hoveredLaneEntity.getComponent('spawn-lane');
+        if (!laneComp.isActive) {
+            laneComp.element.style.backgroundColor = 'rgba(195, 1, 1, 0.1)';
+            this.spawnPlaceHolder.unActive();
+        }
+    }
     };
     backgroundEventListener(laneEntity){
         const laneComp = laneEntity.getComponent('spawn-lane');
@@ -81,6 +91,8 @@ export class SpawnArea{
             laneComp.element.addEventListener(event,()=>{  
                 if(laneComp.isActive){
                     laneComp.element.style.backgroundColor = 'rgba(0, 255, 0, 0.1)';
+                    this.hoveredLaneEntity = laneEntity;
+                    this.spawnPlaceHolder.active();
                 }
                 else{
                     laneComp.element.style.backgroundColor = 'rgba(195, 1, 1, 0.1)';
@@ -90,6 +102,7 @@ export class SpawnArea{
         disableEvents.forEach((event)=>{
             laneComp.element.addEventListener(event,()=>{
                 laneComp.element.style.backgroundColor = `transparent`;
+                this.spawnPlaceHolder.unActive();
             });
         })
     };

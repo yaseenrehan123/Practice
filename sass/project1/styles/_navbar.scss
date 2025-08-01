@@ -1,0 +1,21 @@
+.navbar {
+    .main-navbar {
+        @include flexCenter();
+        width: 100%;
+        padding: 14px 8px;
+        background-color: black;
+        .middle-mainbar-section {
+                @include flexCenter();
+                gap: 30px;
+            };
+    };
+    .navbar-link {
+        font-size: 2rem;
+        color: $navlinkDefaultColor;
+        font-weight: bold;
+        transition: color 0.15s;
+        &:hover{
+            color: $navlinkHoveredColor;
+        }
+    };
+}

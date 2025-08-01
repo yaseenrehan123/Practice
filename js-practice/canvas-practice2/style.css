@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.game-container{
+    image-rendering: pixelated;
+    aspect-ratio: 4/3;
+    width: 100vw;
+    max-height: 100vh;
+    border: 5px black solid;
+    background-color: rgb(72, 148, 199);
+}

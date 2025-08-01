@@ -1,0 +1,18 @@
+@use "./mixins.scss";
+@use "./colors.scss";
+.header{
+    @include mixins.flexCenterVertical();
+    flex-direction: column;
+    gap: 30px;
+    .miura-pic{
+        width: 150px;
+        height: 150px;
+    };
+    .author-description{
+        max-width: 500px;
+        text-wrap: wrap;
+        word-wrap: break-word;
+        line-height: 1.5rem;
+        text-align: center;
+    }
+}

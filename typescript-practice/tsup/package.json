@@ -1,0 +1,16 @@
+{
+  "name": "tsup-practice",
+  "version": "1.0.0",
+  "description": "A tsup practice",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,10 +1,13 @@
 import { SpawnArea } from "./spawnArea.js";
 import { CreateShape } from "./shapes.js";
-
+import { SpawnPlaceHolder } from "./spawnPlaceHolder.js";
+import {Particles} from './particles.js'
+import { ScreenShake } from "./screenshake.js";
 export class PlayerControls {
     constructor(settings) {
         this.settings = settings;
-        this.spawnArea = new SpawnArea(settings);
+        this.spawnPlaceHolder = new SpawnPlaceHolder(settings,this);
+        this.spawnArea = new SpawnArea(settings,this.spawnPlaceHolder);
         this.fireTimeInSeconds = 3;
         this.fireCounter = 0;
         this.bulletNum = 0;
@@ -15,21 +18,24 @@ export class PlayerControls {
     start() {
         this.settings.registerObject(this);
         this.spawnArea.laneEntities.forEach((lane) => {
+            const laneComp = lane.getComponent('spawn-lane');
             const laneElement = lane.getComponent('spawn-lane').element;
             const events = ['click', 'touchstart'];
 
             events.forEach((eventName) => {
-                laneElement.addEventListener(eventName, (e) => this.shoot(e), { passive: true });
+                laneElement.addEventListener(eventName, (e) => this.shoot(e,laneComp), { passive: true });
             });
         });
     }
     update(){
-        if(this.fireCounter > 0){
+        if(!this.canFire()){
             this.fireCounter -= this.settings.deltaTime;
         }
     };
-    shoot(event) {
-        if(this.fireCounter > 0)
+    shoot(event,laneComp) {
+        if(!laneComp.isActive)
+            return;
+        if(!this.canFire())
             return;
         let spawnPos = { x: 0, y: 0 };
         if (event.type === 'click') {
@@ -47,6 +53,8 @@ export class PlayerControls {
 
         this.resetCounter();
         this.spawnBullet(spawnPos);
+        new Particles(spawnPos,'green');
+        new ScreenShake();
         this.spawnArea.activateRandomLanes();
     }
     resetCounter() {
@@ -61,11 +69,21 @@ export class PlayerControls {
             rotation: 0,
             color: 'green',
             componentsToAttach: [
-                ['playerBullet',true]
+                ['playerBullet',true],
+                ['damage',5]
             ],
-            name:`playerBullet${this.bulletNum}`
+            name:`playerBullet${this.bulletNum}`,
+            speed: 10,
+            matterBodyLabel: 'playerBullet',
+            matterBodyCategory: this.settings.CATEGORY_PLAYERBULLET,
+            matterBodyMask: this.settings.CATEGORY_ENEMY
         };
         CreateShape(options);
         this.bulletNum++;
+    };
+    canFire(){
+        if(this.fireCounter <= 0)
+            return true;
+        return false;
     };
 }

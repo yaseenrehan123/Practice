@@ -1,0 +1,39 @@
+{
+    "player":{
+        "components":{
+            "position":{"x":100,"y":100}
+        }
+    },
+    "bar":{
+        "components":{
+            "bar":{
+                "value":0,
+                "maxValue":1,
+                "background":{
+                    "enabled":false,
+                    "color":"black"
+            }
+            }
+            
+        }
+    },
+    "enemy":{
+        "components":{
+            "pos":{"x":100,"y":200},
+            "health":100,
+            "damage":10,
+            "imgKey":"enemy1",
+            "width":100,
+            "height":100,
+            "matterBodyOptions":{
+                "label":"",
+                "collisionFilter":{
+                    "group":0,
+                    "layer":"",
+                    "mask":""
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.navbar .main-navbar {
+  width: 100%;
+  padding: 14px 8px;
+  background-color: black;
+}
+.navbar .main-navbar .middle-mainbar-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.navbar .navbar-link {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  transition: color 0.15s;
+}
+.navbar .navbar-link:hover {
+  color: rgb(22, 143, 209);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: transparent;
+}/*# sourceMappingURL=style.css.map */

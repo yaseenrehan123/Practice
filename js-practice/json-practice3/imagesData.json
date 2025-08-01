@@ -1,0 +1,7 @@
+{
+    "player":"images/player/player.png",
+    "greenBullet":"images/bullets/greenBullet.png",
+    "blueBullet": "images/bullets/blueBullet.png",
+    "purpleBullet":"images/bullets/purpleBullet.png"
+
+}

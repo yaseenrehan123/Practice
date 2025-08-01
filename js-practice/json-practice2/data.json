@@ -1,0 +1,18 @@
+{
+    "player":{
+        "components":{
+            "pos":{"x":500,"y":500}
+        }
+    },
+    "bullet":{
+        "components":{
+            "damage":9,
+            "speed":6
+        }
+    },
+    "enemy":{
+        "components":{
+            "health":10
+        }
+    }
+}

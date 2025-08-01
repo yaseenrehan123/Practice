@@ -1,0 +1,16 @@
+{
+    "player":{
+        "components":{
+            "pos":{"x":500,"y":500},
+            "rotation":0,
+            "baseRotation":0
+        }
+    },
+    "enemy":{
+        "components":{
+            "pos":{"x":500,"y":0},
+            "rotation":180,
+            "baseRotation":180
+        }
+    }
+}
