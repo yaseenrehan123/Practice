@@ -1,3 +1,16 @@
 {
-    "compile-hero.disable-compile-files-on-did-save-code": true
+    "compile-hero.disable-compile-files-on-did-save-code": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "PostgreSQL local",
+            "database": "postgres",
+            "username": "postgres",
+            "password": "EducatorSQLSchool",
+            "connectionTimeout": 30
+        }
+    ]
 }
